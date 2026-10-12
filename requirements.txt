@@ -14,7 +14,8 @@ langchain-groq
 langchain-google-genai
 
 #CloudFlare
-langchain-cloudflare langchain-core
+langchain-cloudflare 
+langchain-core
 
 
 # Tavily Search Tool
