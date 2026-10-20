@@ -1,7 +1,8 @@
 from langchain.agents import create_agent
 from langchain_groq import ChatGroq
-#from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_cloudflare import ChatCloudflareWorkersAI
+from langchain_mistralai import ChatMistralAI
 #from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -12,14 +13,17 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Model setup
-llm = ChatGroq(model="openai/gpt-oss-20b", temperature=0)
-#llm2 = ChatGoogleGenerativeAI(model="gemini-3.8-flash", temperature=0)
-llm2 = ChatCloudflareWorkersAI(model="@cf/meta/llama-3.1-8b-instruct", temperature=0)
+
+llm = ChatCloudflareWorkersAI(model="@cf/meta/llama-3.1-8b-instruct", temperature=0)
+llm3 = ChatCloudflareWorkersAI(model="@cf/meta/llama-3.1-8b-instruct", temperature=0)
+llm2 = ChatGroq(model="openai/gpt-oss-120b", temperature=0)
+llm4 = ChatGroq(model="openai/gpt-oss-20b", temperature=0)
+
 # 1st Agent
 
 def build_search_agent():
     return create_agent(
-        model=llm2,
+        model=llm,
         tools=[tavily_search]
     )
 
@@ -27,7 +31,7 @@ def build_search_agent():
 
 def build_reader_agent():
     return create_agent(
-        model=llm,
+        model=llm2,
         tools=[scrape_url]
     )
 
@@ -51,7 +55,7 @@ Structure the report as:
 Be detailed, factual and professional."""),
 ])
 
-writer_chain = writer_prompt | llm | StrOutputParser()
+writer_chain = writer_prompt | llm2 | StrOutputParser()
 
 #Critic chain
 
@@ -78,6 +82,6 @@ One line verdict:
 ..."""),
 ])
 
-critic_chain = critic_prompt | llm2 | StrOutputParser()
+critic_chain = critic_prompt | llm3 | StrOutputParser()
 
 

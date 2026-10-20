@@ -16,6 +16,9 @@ langchain-groq
 #CloudFlare
 langchain-cloudflare 
 
+#mistral
+langchain-mistralai
+
 # Tavily Search Tool
 tavily-python>=0.3.0
 
