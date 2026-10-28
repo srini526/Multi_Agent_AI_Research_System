@@ -4,6 +4,8 @@ import Stage from "./Stage";
 import Report from "./Report";
 import { AskBox, ErrorCard, Floaters, Header, Hero, Notebook, RunBanner } from "./Home";
 import { RadioFeed } from "./ui";
+import { SpeedInsights } from "@vercel/speed-insights/react"
+import { Analytics } from "@vercel/analytics/react"
 
 export default function App() {
   const { phase, run, error, history, current, currentId, start, select, newSession, clearHistory, dismissError } =
@@ -48,6 +50,8 @@ export default function App() {
           newSession();
         }}
       />
+      <SpeedInsights />
+      <Analytics />
     </div>
   );
 }
