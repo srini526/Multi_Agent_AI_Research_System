@@ -15,6 +15,7 @@ export default function App() {
   const markTyped = useCallback((id) => setTyped((s) => (s.has(id) ? s : new Set(s).add(id))), []);
   const running = phase === "running";
 
+  
   return (
     <div className="app">
       <Floaters />
