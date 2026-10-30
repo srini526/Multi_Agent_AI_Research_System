@@ -5,6 +5,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from tools import tavily_search, scrape_url
 from dotenv import load_dotenv
+from mcp_client import tavily_search, scrape_url
 
 load_dotenv()
 

@@ -4,6 +4,7 @@ from urllib.parse import urlsplit
 
 from agent import build_reader_agent, build_search_agent, writer_chain, critic_chain
 from tools import tavily_search, scrape_url
+from mcp_client import tavily_search, scrape_url
 
 
 URL_RE = re.compile(r"https?://[^\s<>\"']+", re.IGNORECASE)
