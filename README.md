@@ -165,7 +165,7 @@ The backend can serve the built `frontend/dist` directory when it exists. Contai
 
 ## Future work
 
-See [PLAN.md](./PLAN.md) for the proposed roadmap.
+See [PLAN.md](./plan.md) for the proposed roadmap.
 
 ## Security
 
