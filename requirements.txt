@@ -57,3 +57,5 @@ html5lib>=1.1
 fastapi>=0.110
 uvicorn[standard]>=0.29
 fpdf2>=2.7
+
+mcp<2
